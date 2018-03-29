@@ -1,37 +1,131 @@
-## Welcome to GitHub Pages
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>2017监督部</title>
+<style type="text/css">
+body{
+background:#000000;
+margin:20px 0;
+font:12px Verdana,Arial,Tahoma;text-align:center;vertical-align:middle;color:#FFFFFF
+}	
+img{
+border:none
+}
+.txt_1{
+font:bold 24px Verdana,Tahoma;
+color:#fff
+}
+img.thumb_img{
+cursor:pointer;
+display:block;
+margin-bottom:10px
+}
+img#main_img{
+cursor:pointer;
+display:block;
+}
+#gotop{
+cursor:pointer;
+display:block;
+}
+#gobottom{
+cursor:pointer;
+display:block;
+}
+#showArea{
+height:"355px";
+margin:"10px";
+overflow:hidden
+}
+</style>
+<!--<script src="js/jquery3.1.1.js"></script>-->
 
-You can use the [editor on GitHub](https://github.com/forjuns/jdb/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+</head>
+<body>
+<table width="760" border="0" align="center" cellpadding="0" cellspacing="8">
+<tr>
+<td height="75" colspan="2" align="left" class="txt_1">2017监督部</td>
+</tr>
+<tr>
+<td width="640" align="center">
+<!--	<button id="main_img">点击<双击查看原图tton>-->
+<img src="img/01.jpg" width="900" height="800" border="0" id="main_img" >
+</td>
+<td width="110" align="center" valign="top">
+<img src="img/01.jpg" width="100" height="10" id="gotop" altat="#"  />
+<div id="showArea">
+<img src="img/01.jpg" alta="#" width="80" height="50" border="0" class="thumb_img" />
+<img src="img/02.jpg" alta="#" width="80" height="50" border="0" class="thumb_img"  />
+<img src="img/03.jpg" alta="#" width="80" height="50" border="0" class="thumb_img"  />
+<img src="img/04.jpg" alta="#" width="80" height="50" border="0" class="thumb_img" />
+<img src="img/05.jpg" alta="#" width="80" height="50" border="0" class="thumb_img" />
+<img src="img/06.jpg" alta="#" width="80" height="50" border="0" class="thumb_img" />
+<img src="img/07.jpg" alta="#" width="80" height="50" border="0" class="thumb_img" />
+<img src="img/08.jpg" alta="#" width="80" height="50" border="0" class="thumb_img"  />
+<img src="img/09.jpg" alta="#" width="80" height="50" border="0" class="thumb_img"  />
+</div>
+<img src="img/09.jpg" width="100" height="14" id="gobottom" />
+</td>
+</tr>
+</table>
+<br />
+<p>&nbsp</p>
+<script type="application/javascript">
+function $(e){
+return document.getElementById(e);
+}
+document.getElementsByClassName=function(cl){
+var retnode=[];
+var myclass=new RegExp('\\b'+ cl+'\\b');
+var elem=this.getElementsByTagName('*');
+for(var i=0;i<elem.length;i++){
+var classes=elem[i].className;
+if(myclass.test(classes))
+ retnode.push(elem[i]);
+}
+return retnode;
+}
+var MyMar;
+var speed=1;
+var spec=1;
+var ipath='img/';
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/forjuns/jdb/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+var thumbs=document.getElementsByClassName('thumb_img');
+for(var i=0;i<thumbs.length;i++){
+thumbs[i].onmouseover=function(){
+/*$('main_img').src=this.rel;*/
+$('main_img').src=this.src;
+}
+thumbs[i].onclick=function(){
+location=this.src
+}
+}
+document.getElementById('main_img').onclick=function(){
+location=this.src;
+}
+$('gotop').onmouseover=function(){
+this.src=ipath+'01.jpg';
+MyMar=setInterval(gotop.speed);
+}
+$('gotop').onmouseout=function(){
+this.src=ipath+'01.jpg';
+clearInterval(MyMar);
+}
+$('gobottom').onmouseover=function(){
+this.src=ipath+'09.jpg';
+MyMar=setInterval(gobottom.speed);
+}
+$('gobottom').onmouseout=function(){
+this.src=ipath+'09.jpg';
+clearInterval(MyMar);
+}
+function gotop(){
+document.getElementById('showArea').scrollTop-=spec;
+}
+function gobottom(){
+document.getElementById('showArea').scrollTop+=spec;
+}
+</script>
+</body>
+</html>
